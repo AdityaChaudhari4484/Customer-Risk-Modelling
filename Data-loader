@@ -1,0 +1,17 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 1. Load Data
+df = pd.read_csv('credit_risk_dataset.csv')
+
+# 2. Clean Basics (Drop Nulls for simplicity in this tutorial)
+df = df.dropna()
+
+# 3. Business Insight: Does Income impact Default?
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='loan_status', y='person_income', data=df)
+plt.title('Income Distribution by Loan Status')
+plt.ylim(0, 150000) # Limit y-axis to see common range
+plt.show()
